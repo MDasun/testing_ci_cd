@@ -9,7 +9,7 @@ EXCLUDE_FOLDERS=("node_modules")
 
 # Remote VM details
 REMOTE_USER="root"
-REMOTE_HOST="178.128.20.26"
+REMOTE_HOST="192.168.232.129"
 REMOTE_PATH="/root"
 
 # Check if tar is installed
