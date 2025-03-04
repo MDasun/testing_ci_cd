@@ -3,7 +3,7 @@ name: Deploy SecurePass User App
 on:
   push:
     branches:
-      - main  # Change this if your branch is different
+      - main  # Change to your main branch
 
 jobs:
   build-and-deploy:
@@ -25,11 +25,9 @@ jobs:
     - name: Build and Push Backend Image
       uses: docker/build-push-action@v5
       with:
-       context: ./backend
-       push: true
-       tags: |
-        ${{ secrets.DOCKER_USERNAME }}/securepass-user-be:latest
-
+        context: ./backend
+        push: true
+        tags: ${{ secrets.DOCKER_USERNAME }}/securepass-user-be:latest
 
     - name: Build and Push Frontend Image
       uses: docker/build-push-action@v5
