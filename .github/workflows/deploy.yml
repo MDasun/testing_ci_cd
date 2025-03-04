@@ -43,9 +43,9 @@ jobs:
     - name: Deploy to Server
       uses: appleboy/ssh-action@master
       with:
-        host: 192.168.232.129  # Host machine IP inside VMware NAT
+        host: 45.136.18.192  # Host machine IP inside VMware NAT
         username: root
-        port: 2222  # Updated SSH port
+        port: 22  # Updated SSH port
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd /home/root/ci_cd_testing
