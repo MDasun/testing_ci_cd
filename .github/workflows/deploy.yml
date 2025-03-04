@@ -36,6 +36,10 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/securepass-user-fe:latest
 
+    - name: Test SSH Connection
+      run: |
+        nc -zv ${{ secrets.SERVER_IP }} 22 || echo "SSH is not reachable"        
+        
     - name: Deploy to Server
       uses: appleboy/ssh-action@master
       with:
