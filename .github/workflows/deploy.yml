@@ -43,12 +43,11 @@ jobs:
     - name: Deploy to Server
       uses: appleboy/ssh-action@master
       with:
-        host: 45.136.18.192  # Host machine IP inside VMware NAT
-        username: root
-        port: 22  # Updated SSH port
+        host: ${{ secrets.SERVER_IP }}
+        username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd /home/root/ci_cd_testing
+          cd /home/${{ secrets.SERVER_USER }}/ci_cd_testing
           docker compose down
           docker pull ${{ secrets.DOCKER_USERNAME }}/securepass-user-be:latest
           docker pull ${{ secrets.DOCKER_USERNAME }}/securepass-user-fe:latest
